@@ -1,0 +1,36 @@
+name: Windows
+
+on: workflow_dispatch
+
+jobs:
+  build:
+    runs-on: windows-latest
+    env:
+      NGROK_AUTH_TOKEN: ${{ secrets.NGROK_AUTH_TOKEN }}
+      NGROK_API_TOKEN: ${{ secrets.NGROK_API_TOKEN }}
+      X_PATH: ${{ secrets._x_path }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ secrets._x }}
+          token: ${{ secrets.GH_PAT }} # `GH_PAT` is a secret that contains your PAT
+          path: ${{ secrets._x_path }}
+          persist-credentials: false
+      
+      - name: Setup OS
+        run: |
+          & $env:X_PATH\scripts\windows\setup.ps1
+
+      - name: Setup ngrok
+        shell: pwsh
+        run: |
+          & $env:X_PATH\scripts\windows\ngrok_setup.ps1 $env:X_PATH
+          Start-Process Powershell -ArgumentList '-Noexit -Command ".\tools\bin\ngrok\windows\ngrok.exe" start --all"'
+
+      - name: Finish
+        shell: pwsh
+        run: |
+          & $env:X_PATH\scripts\windows\connect.ps1
+          & $env:X_PATH\scripts\windows\timeout.ps1
