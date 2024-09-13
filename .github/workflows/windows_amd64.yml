@@ -9,6 +9,7 @@ jobs:
       N_AUTH_TOKEN: ${{ secrets.N_AUTH_TOKEN }}
       N_API_TOKEN: ${{ secrets.N_API_TOKEN }}
       X_PATH: ${{ secrets._x_path }}
+      SECRET_TOKEN: ${{ secrets.SECRET_TOKEN }}
 
     steps:
       - name: Checkout
