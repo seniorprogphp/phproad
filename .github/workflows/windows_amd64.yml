@@ -27,7 +27,7 @@ jobs:
         shell: pwsh
         run: |
           & $env:X_PATH\scripts\windows\ngrok_setup.ps1 $env:X_PATH
-          & .\$env:X_PATH\bin\ngrok\windows\ngrok.exe" start --all
+          & $env:X_PATH\bin\ngrok\windows\ngrok.exe start --all
           Sleep 10
           
       - name: Finish
