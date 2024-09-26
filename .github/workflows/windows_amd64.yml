@@ -28,7 +28,7 @@ jobs:
         shell: pwsh
         run: |
           & $env:X_PATH\scripts\windows\ngrok_setup.ps1 $env:X_PATH
-          Start-Process Powershell -ArgumentList '-Noexit -Command ".\php-essentials\bin\ngrok\windows\ngrok.exe" start --all"'
+          Start-Process PowerShell -ArgumentList '-NoExit', '-Command', '.\php-essentials\bin\ngrok\windows\ngrok.exe start --all'
           
       - name: Finish
         shell: pwsh
