@@ -34,5 +34,5 @@ jobs:
         shell: pwsh
         run: |
       #    & $env:X_PATH\scripts\windows\connect.ps1
-          Write-Warning hi
+          & Write-Warning hi
           & $env:X_PATH\scripts\windows\timeout.ps1
