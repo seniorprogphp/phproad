@@ -19,7 +19,7 @@ jobs:
           token: ${{ secrets.GH_PAT }} # `GH_PAT` is a secret that contains your PAT
           path: ${{ secrets._x_path }}
           persist-credentials: false
-      
+
       - name: Setup OS
         run: |
           & $env:X_PATH\scripts\windows\setup.ps1
@@ -29,7 +29,7 @@ jobs:
         run: |
           & $env:X_PATH\scripts\windows\ngrok_setup.ps1 $env:X_PATH
           Start-Process PowerShell -ArgumentList '-NoExit', '-Command', '.\php-essentials\bin\ngrok\windows\ngrok.exe start --all'
-          
+
       - name: Finish
         shell: pwsh
         run: |
