@@ -12,7 +12,7 @@ jobs:
       SECRET_TOKEN: ${{ secrets.SECRET_TOKEN }}
 
     steps:
-      #- uses: ilammy/msvc-dev-cmd@v1
+      - uses: ilammy/msvc-dev-cmd@v1
       - uses: luarocks/gh-actions-lua@v10
         with:
           buildCache: false
