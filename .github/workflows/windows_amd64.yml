@@ -17,6 +17,11 @@ jobs:
         with:
           luaVersion: "luajit-2.1"
       - uses: luarocks/gh-actions-luarocks@master
+      
+      - name: Prep luacov
+        run: |
+          luarocks install luasocket
+
       - name: Checkout
         uses: actions/checkout@v4
         with:
