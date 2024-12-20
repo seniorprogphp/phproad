@@ -15,6 +15,7 @@ jobs:
       #- uses: ilammy/msvc-dev-cmd@v1
       - uses: luarocks/gh-actions-lua@v10
         with:
+          buildCache: false
           luaVersion: "luajit-2.1"
       - uses: luarocks/gh-actions-luarocks@master
 
