@@ -19,7 +19,7 @@ jobs:
       - uses: luarocks/gh-actions-luarocks@master
         with:
           withLuaPath: ".lua\"
-      
+
       - name: Prep luacov
         run: |
           luarocks install luasocket
