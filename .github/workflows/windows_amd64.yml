@@ -18,7 +18,7 @@ jobs:
           luaVersion: "luajit-2.1"
       - uses: luarocks/gh-actions-luarocks@master
         with:
-          withLuaPath: ".lua\\"
+          withLuaPath: ".lua"
 
       - name: Prep luacov
         run: |
