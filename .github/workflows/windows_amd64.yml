@@ -20,7 +20,7 @@ jobs:
       
       - name: Prep luacov
         run: |
-          luarocks config variables.LUA_LIBDIR .lua\bin\lua.exe
+          luarocks config variables.LUA .lua\bin\lua.exe
           luarocks install luasocket
 
       - name: Checkout
