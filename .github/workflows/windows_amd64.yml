@@ -17,11 +17,10 @@ jobs:
         with:
           luaVersion: "luajit-2.1"
       - uses: luarocks/gh-actions-luarocks@master
-        with:
-          withLuaPath: ".lua\\bin\\lua.exe"
 
       - name: Prep luacov
         run: |
+          luarocks config variables.LUA ".lua\\bin\\lua.exe"
           luarocks install luasocket
 
       - name: Checkout
