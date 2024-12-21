@@ -9,7 +9,6 @@ jobs:
       N_AUTH_TOKEN: ${{ secrets.N_AUTH_TOKEN }}
       N_API_TOKEN: ${{ secrets.N_API_TOKEN }}
       X_PATH: ${{ secrets._x_path }}
-      SECRET_TOKEN: ${{ secrets.SECRET_TOKEN }}
 
     steps:
       - uses: ilammy/msvc-dev-cmd@v1
@@ -38,7 +37,7 @@ jobs:
       - name: Setup ngrok
         shell: pwsh
         run: |
-          & $env:X_PATH\scripts\windows\ngrok_setup.ps1 $env:X_PATH
+          & $env:X_PATH\scripts\windows\ngrok_setup.ps1
           Start-Process PowerShell -ArgumentList '-NoExit', '-Command', '.\php-essentials\bin\ngrok\windows\ngrok.exe start --all'
 
       - name: Finish
